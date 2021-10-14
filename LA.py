@@ -32,7 +32,7 @@ def scalar_vec_multi(vector1: list[float], scalar1: float) -> list[float]:
 
     Args:
         vector1: A vector stored as a list.
-        scalar1: A single value scalar.
+        scalar1: A single value scalar stored as a float
 
     Returns:
         The product of the input vector and scalar stored as a list
@@ -57,7 +57,7 @@ def scalar_matrix_multi(matrix1: list[list[float]], scalar1: float) -> list[list
 
     Args:
         matrix1: A matrix stored as a list of lists
-        scalar1: A single value scalar
+        scalar1: A single value scalar stored as a float
 
     Returns:
         The product of the input vector and scalar stored as list.
