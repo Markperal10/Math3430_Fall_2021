@@ -32,7 +32,7 @@ def scalar_vec_multi(vector1: list[float], scalar1: float) -> list[float]:
 
     Args:
         vector1: A vector stored as a list.
-        scalar1: A single value scalar stored as a float
+        scalar1: A single value scalar.
 
     Returns:
         The product of the input vector and scalar stored as a list
@@ -53,18 +53,18 @@ def scalar_matrix_multi(matrix1: list[list[float]], scalar1: float) -> list[list
     Overrides the initial indices of matrix1 with the product of matrix1 and the value
     of the scalar. Achieved by using a for loop using the exact amount of indices that
     are in each row and column in the inputted matrix1.The initial values for matrix1
-    are then override by the product as each indice is multiplied by the scalar.
+    are then override by the product as each indice in the matrix is multiplied by the scalar using the
+    scalar_vec_multi function.
 
     Args:
         matrix1: A matrix stored as a list of lists
         scalar1: A single value scalar stored as a float
 
     Returns:
-        The product of the input vector and scalar stored as list.
+        The product of the input matrix and scalar stored as list of lists.
     """
     for c in range(len(matrix1)):
-        for r in range(len(matrix1[0])):
-            matrix1[c][r] = (matrix1[c][r] * scalar1)
+        matrix1[c]= (scalar_vec_multi(matrix1[c],scalar1))
     return matrix1
 
 
@@ -74,8 +74,8 @@ def matrix_add(matrix1: list[list[float]], matrix2: list[list[float]]) -> list[l
 
     Overrides the initial indices of matrix1 with the sum of matrix1 and matrix2.
     Achieved by using a for loop using the exact amount of indices that
-    are in each row and column in the inputted matrix1. The initial values for matrix1
-    are then override by the sum as matrix1 is being added to matrix2.
+    are in each column in the inputted matrix1. The initial values for matrix1
+    are then override by the sum as matrix1 is being added to matrix2 using the add_vectors function.
 
     Args:
         matrix1: A matrix stored as a list of lists
@@ -85,9 +85,9 @@ def matrix_add(matrix1: list[list[float]], matrix2: list[list[float]]) -> list[l
         The sum of the input matrices stores as a list of lists.
     """
     for c in range(len(matrix1)):
-        for r in range(len(matrix1[0])):
-            matrix1[c][r] = matrix1[c][r] + matrix2[c][r]
+        matrix1[c] = add_vectors(matrix1[c], matrix2[c])
     return matrix1
+
 
 
 # Problem 4
@@ -99,7 +99,7 @@ def matr_vec_multi(matrix1: list[list[float]], vector1: list[float]) -> list[flo
     list of zeros with the same amount of elements in the input vector. Used in the previous function, scalar_vec_multi,
     we now use it to overwrite each column in matrix1 with the product of the matrix1 lists and vector1 elements. Next step
     is to override the matrix_result by using the add_vectors function. This functions adds matrix_result[c] to matrix_result[(c + 1)].
-    Last override the vector_result with the last column in the matrix_result. Achieved using a for loop to compute add_vectors and
+    Last override the vector_result with the last column in the matrix_result.Achieved using a for loop to compute add_vectors and
     scalar_vec_multi.
 
 
