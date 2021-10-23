@@ -146,3 +146,125 @@ def matr_matr_multi(matrix1: list[list[float]], matrix2: list[list[float]]) -> l
         matrix_result[c] = matr_vec_multi(matrix1, matrix2[c])
 
     return matrix_result
+
+# Homework 04
+
+# Problem 1
+def abs_value(scalar: complex):
+    """ Computes the absolute value of a scalar
+
+    Creates a scalar set to take both real and complex numbers.
+    Creates a result equal to complex numbers which takes the real and imaginary
+    numbers and squares them. Then takes the sum of the two and takes the square
+    root to give the absolute value.
+
+    Args:
+         scalar: A scalar stored as real and complex numbers
+
+    Returns:
+        The absolute value stored as a complex or real number
+
+    """
+    scalar = complex(scalar)
+    result: complex = scalar.real**2 + scalar.imag**2
+    result = result**(.5)
+    return result
+
+# Problem 2
+def p_norm(vector_A:list[float], p:float = 2):
+    """Computes the p-norm for a vector and an initialized p value
+
+    Creates a result variable as a float assigned to zero. For the elements in vector_A add 0, the initial result value,
+    to the first element in the vector.That sum is squared by the integer value of p which is 2. Run same process by adding
+    the next element in the input vector to the previous value that was squared. Creates a variable, power,
+    to take the absolute value of 1/p which equals 1/2. The result is then computed by using the sum of the elements after
+    they are squared in vector_A and multiplied by the power result.
+
+    Args:
+        vector_A: A vector stored as a list
+        p: float value stored as 2
+    Returns:
+        A result stored as a float of the product between result and power
+
+    """
+    result: float = 0
+    for element in vector_A:
+        result = result + element**(abs_value(p))
+    power: float = abs_value(1/p)
+    result = result**(power)
+    return result
+
+#Problem 3
+def inf_norm(vector_A: list[float]):
+    """Computes the infinity norm of the input vector 
+    
+   Creates a result variable as a float assigned to zero. For the elements in vector_A add 0, the initial result value,
+    to the first element in the vector.That sum is squared by the absolute value of p which is 2. Overrides result by adding
+    the next element in the input vector using the same process to the previous value that was squared.Runs for the amount of
+    elements in the input vector. Creates a variable,power,to take the absolute value of 1/p which equals 1/2.
+    The result is then set to equal the sum of the elements after they are squared in vector_A and multiplied by the power result.
+    
+    Args: 
+        vector_A: A vector stored as a list
+    
+    Returns: 
+        The element with the largest absolute value of the vector stored as a float
+    """
+    result: float = 0
+    compare: float= 0
+    for element in vector_A:
+        compare = abs_value(element)
+        if (compare > result):
+            result = compare
+    return result
+
+#Problem 4
+def P_inf_norm_result(vector_A: list[float], p:float =2, boolean:bool =False):
+    """Returns the p-norm or the infinity norm of the vector and p value.
+
+    A boolean value set to False. The function returns the p-norm of the input vector.This would mean once the elements
+    in vector_A are squared then added the square root is then taken.If the boolean value is changed to True
+    the function will call the previous function inf_norm to calculate the infinity norm of vector_A.
+    This would be the highest absolute value in vector_A.
+
+    Args:
+        vector_A: A vector stored as a list
+        p: A float value set to 2
+        boolean: A boolean value set to false
+    Returns:
+        The p-norm or infinity norm of vector_A stored as a float
+
+    """
+    if (boolean == False):
+        result = p_norm(vector_A, p)
+    else:
+        result = inf_norm(vector_A)
+    return result
+
+#Problem 5
+def Inner_product(vector_A: list[float], vector_B: list[float]):
+    """Computes the inner product of two input vectors
+
+    Creates a result variable set to zero as a float. For the same length of vector_A
+    a corresponding vector_B is multiplied. Each element in vector_A is multiplied to each
+    corresponding element in vector_B. Then the sum of the product of the elements in both vectors are added
+    to result 0.
+
+    Args:
+        vector_A: A vector stored as a list
+        vector_B: A vector stored as a list
+    Returns:
+         The inner product of two input vectors stored as a float
+
+    """
+    result:float = 0
+    for element in range(len(vector_A)):
+        result = result + (complex(vector_A[element]) * complex(vector_B[element]))
+    return result
+
+
+
+
+
+
+
