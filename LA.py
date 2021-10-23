@@ -150,7 +150,7 @@ def matr_matr_multi(matrix1: list[list[float]], matrix2: list[list[float]]) -> l
 # Homework 04
 
 # Problem 1
-def abs_value(scalar: complex):
+def abs_value(scalar: complex)->complex:
     """ Computes the absolute value of a scalar
 
     Creates a scalar set to take both real and complex numbers.
@@ -171,7 +171,7 @@ def abs_value(scalar: complex):
     return result
 
 # Problem 2
-def p_norm(vector_A:list[float], p:float = 2):
+def p_norm(vector_A:list[float], p:float = 2)->float:
     """Computes the p-norm for a vector and an initialized p value
 
     Creates a result variable as a float assigned to zero. For the elements in vector_A add 0, the initial result value,
@@ -195,7 +195,7 @@ def p_norm(vector_A:list[float], p:float = 2):
     return result
 
 #Problem 3
-def inf_norm(vector_A: list[float]):
+def inf_norm(vector_A: list[float])->float:
     """Computes the infinity norm of the input vector 
     
    Creates a result variable as a float assigned to zero. For the elements in vector_A add 0, the initial result value,
@@ -219,7 +219,7 @@ def inf_norm(vector_A: list[float]):
     return result
 
 #Problem 4
-def P_inf_norm_result(vector_A: list[float], p:float =2, boolean:bool =False):
+def P_inf_norm_result(vector_A: list[float], p:float =2, boolean:bool =False)->float:
     """Returns the p-norm or the infinity norm of the vector and p value.
 
     A boolean value set to False. The function returns the p-norm of the input vector.This would mean once the elements
@@ -242,7 +242,7 @@ def P_inf_norm_result(vector_A: list[float], p:float =2, boolean:bool =False):
     return result
 
 #Problem 5
-def Inner_product(vector_A: list[float], vector_B: list[float]):
+def Inner_product(vector_A: list[float], vector_B: list[float])->float:
     """Computes the inner product of two input vectors
 
     Creates a result variable set to zero as a float. For the same length of vector_A
