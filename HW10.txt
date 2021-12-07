@@ -1,6 +1,10 @@
 Mark Peralta
 Homework 10 
 
+Question 01)
+Briefly describe a computing project you would find interesting to work on in
+the future.
+
 A computing project that I would find interesting would be to crate an old school video game such as Galaga
 or even a simple 2D character game like Mario. Due to these games being older I would hope that they use simple functions for their
 games and the process to create one. It would be intersting to see how the game runs, how to change certain things, and what cool things could be added.
